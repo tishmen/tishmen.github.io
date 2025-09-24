@@ -33,8 +33,7 @@
         background-color: #0b0c0f;
         color: #e5e7eb;
       }
-      /* Keep article content from causing page-wide horizontal scroll */
-      .prose { overflow-x: hidden; }
+      /* Keep article content readable; no page-wide hacks here */
       .prose table { display: block; width: 100%; overflow-x: auto; }
       .prose img, .prose video, .prose iframe { max-width: 100%; height: auto; }
       /* Fix mobile overflow caused by long list items (ul/ol) */
@@ -43,14 +42,50 @@
 
       /* Hint browsers to render native controls in dark */
       input, select, textarea, option { color-scheme: dark; }
-      /* Highlight.js canonical: overflow on highlighted element */
-      .prose pre {
+      /* Code blocks (non-Rouge): scroll horizontally on mobile */
+      .prose pre:not(.highlight) {
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.10);
         border-radius: .5rem;
+        overflow-x: auto; /* critical: prevent page-wide overflow */
+        -webkit-overflow-scrolling: touch;
+        max-width: min(100%, calc(100vw - 2rem));
+        width: min(100%, calc(100vw - 2rem));
+        box-sizing: border-box;
+        margin: 0;
+        padding: .75rem 1rem;
       }
-      .prose pre code { display: block; white-space: pre; }
-      .hljs { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: .75rem 1rem; }
+      /* Rouge wrappers should never expand layout */
+      .prose div.highlighter-rouge,
+      .prose figure.highlight {
+        display: block;
+        width: min(100%, calc(100vw - 2rem));
+        max-width: min(100%, calc(100vw - 2rem));
+        box-sizing: border-box;
+        background: #272822;
+        color: #f8f8f2;
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: .5rem;
+      }
+      /* Rouge inner <pre> handles horizontal scroll */
+      .prose div.highlighter-rouge .highlight,
+      .prose figure.highlight > pre {
+        background: transparent;
+        border: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: .75rem 1rem;
+        color: inherit;
+      }
+      .prose div.highlighter-rouge pre.highlight code,
+      .prose figure.highlight > pre code,
+      .prose pre code { display: block; white-space: pre; color: inherit; }
+      /* Inline code should not blow up layout on small screens */
+      .prose :not(pre) > code { overflow-wrap: anywhere; word-break: break-word; }
       /* Optional wrapped variant for very long logs */
       .prose pre.wrap code { white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; }
       body::before {
@@ -64,17 +99,90 @@
           radial-gradient(circle, rgba(255,255,255,0.08) 1.2px, transparent 1.3px) 0 0/24px 24px,
           linear-gradient(180deg, #0b0c0f 0%, #0e0f14 100%);
       }
+      /* Clamp layout containers on small screens to prevent viewport overflow */
+      .max-w-7xl {
+        max-width: min(80rem, calc(100vw - 2rem)) !important;
+      }
+      /* Mobile nav (details/summary) tweaks */
+      .mobile-nav {
+        position: relative;
+      }
+      .mobile-nav > summary {
+        list-style: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: .5rem;
+        border: 1px solid rgba(255,255,255,0.15);
+        padding: .5rem .75rem;
+        font-size: .875rem;
+        color: #e2e8f0;
+        background: transparent;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .mobile-nav > summary:hover,
+      .mobile-nav > summary:focus-visible {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        outline: none;
+        border-color: rgba(255,255,255,0.25);
+      }
+      .mobile-nav > summary::-webkit-details-marker { display: none; }
+      .mobile-nav .mobile-menu-panel {
+        position: absolute;
+        inset-inline-end: 0;
+        margin-top: .5rem;
+        min-width: 10rem;
+        border-radius: .75rem;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(11,12,15,1);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+        padding: .75rem;
+        display: none;
+        z-index: 60;
+      }
+      .mobile-nav[open] .mobile-menu-panel { display: block; }
+      /* Rouge token colors (Monokai) */
+      .prose .highlight .c { color: #75715e; font-style: italic; }
+      .prose .highlight .err { color: #960050; background-color: #1e0010; }
+      .prose .highlight .k,
+      .prose .highlight .kc,
+      .prose .highlight .kd,
+      .prose .highlight .kn,
+      .prose .highlight .kp,
+      .prose .highlight .kr,
+      .prose .highlight .kt,
+      .prose .highlight .ow { color: #f92672; }
+      .prose .highlight .o { color: #f92672; }
+      .prose .highlight .n,
+      .prose .highlight .p { color: #f8f8f2; }
+      .prose .highlight .nf,
+      .prose .highlight .na,
+      .prose .highlight .nc,
+      .prose .highlight .nn { color: #a6e22e; }
+      .prose .highlight .s,
+      .prose .highlight .sb,
+      .prose .highlight .sc,
+      .prose .highlight .sd,
+      .prose .highlight .s1,
+      .prose .highlight .s2,
+      .prose .highlight .se,
+      .prose .highlight .sh,
+      .prose .highlight .si,
+      .prose .highlight .sr,
+      .prose .highlight .ss { color: #e6db74; }
+      .prose .highlight .m,
+      .prose .highlight .mb,
+      .prose .highlight .mf,
+      .prose .highlight .mh,
+      .prose .highlight .mi,
+      .prose .highlight .il,
+      .prose .highlight .mo { color: #ae81ff; }
+      .prose .highlight .gd { color: #f92672; }
+      .prose .highlight .gi { color: #a6e22e; }
     </style>
-    <!-- Highlight.js for syntax highlighting -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        try {
-          if (window.hljs) hljs.highlightAll();
-        } catch (e) {}
-      });
-    </script>
+    
     <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
     {% seo %}
   </head>
@@ -86,12 +194,28 @@
             {% include logo.html %}
             <span class="sr-only">{{ site.title }}</span>
           </a>
-          <nav class="flex items-center gap-2 text-sm">
-            <a href="{{ '/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">About</a>
-            <a href="{{ '/work/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Work</a>
-            <a href="{{ '/blog/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Blog</a>
-            <a href="{{ '/contact/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Contact</a>
-          </nav>
+          <div class="flex items-center gap-2">
+            <details class="mobile-nav sm:hidden">
+              <summary aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                  <path fill-rule="evenodd" d="M3.75 5.25A.75.75 0 0 1 4.5 4.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6A.75.75 0 0 1 4.5 10.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                </svg>
+              </summary>
+              <nav class="mobile-menu-panel text-sm text-slate-200" aria-label="Primary">
+                <a href="{{ '/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">About</a>
+                <a href="{{ '/work/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Work</a>
+                <a href="{{ '/blog/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Blog</a>
+                <a href="{{ '/contact/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Contact</a>
+              </nav>
+            </details>
+            <nav class="hidden items-center gap-2 text-sm sm:flex">
+              <a href="{{ '/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">About</a>
+              <a href="{{ '/work/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Work</a>
+              <a href="{{ '/blog/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Blog</a>
+              <a href="{{ '/contact/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Contact</a>
+            </nav>
+          </div>
         </div>
       </div>
     </header>

@@ -52,6 +52,24 @@ permalink: /
 <section class="mt-16">
   <h2 class="text-2xl font-bold text-white">Experience</h2>
   <div class="mt-6 space-y-4">
+    <!-- WeSolved · Senior Odoo Developer (2025) -->
+    <article class="rounded-xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/[.07]">
+      <div class="flex items-start gap-4">
+        <img class="h-10 w-10 rounded-md object-contain bg-white/5 p-1 ring-1 ring-white/10" src="{{ '/assets/images/wesolved.jpg' | relative_url }}" alt="WeSolved logo">
+        <div class="flex-1">
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-4">
+            <h3 class="font-semibold text-white">Senior Odoo Developer <span class="font-normal text-slate-400">@ WeSolved</span></h3>
+            <div class="text-sm text-slate-400 mt-1 md:mt-0 md:shrink-0 md:text-right">Feb 2025 – Sep 2025 · 8 mos</div>
+          </div>
+          <ul class="mt-2 list-disc pl-5 text-slate-300">
+            <li>Delivered accounting customizations for a multinational manufacturer, aligning reporting, and multi-company development.</li>
+            <li>Led the Odoo POS stream, redesigning UX and hardening beta 18.2 builds on the way to the Odoo 19 release.</li>
+            <li>Extended POS integrations with Mews Hotel System, Piggy coupons, and Glory cash machines for tightly synced front-of-house ops.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
     <!-- Upwork · Odoo Developer (2022–2024) -->
     <article class="rounded-xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/[.07]">
       <div class="flex items-start gap-4">
@@ -112,7 +130,7 @@ permalink: /
         <img class="h-10 w-10 rounded-md object-contain bg-white/5 p-1 ring-1 ring-white/10" src="{{ '/assets/images/serpwatch.png' | relative_url }}" alt="SerpWatch logo">
         <div class="flex-1">
           <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-4">
-            <h3 class="font-semibold text-white">Technical Lead <span class="font-normal text-slate-400">@ SerpWatch.io</span></h3>
+            <h3 class="font-semibold text-white">Technical Lead <span class="font-normal text-slate-400">@ Serpwatch.io</span></h3>
             <div class="text-sm text-slate-400 mt-1 md:mt-0 md:shrink-0 md:text-right">Aug 2018 – Sep 2019 · 1 yr 2 mos</div>
           </div>
           <ul class="mt-2 list-disc pl-5 text-slate-300">

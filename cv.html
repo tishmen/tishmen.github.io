@@ -10,6 +10,21 @@ permalink: /cv/
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milan Topuzov · CV</title>
   <style>
+    /* Embedded professional web font (Inter) for consistent screen + print */
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('{{ '/assets/fonts/inter-400.woff2' | relative_url }}') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('{{ '/assets/fonts/inter-700.woff2' | relative_url }}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
       color-scheme: only light;
     }
@@ -19,7 +34,7 @@ permalink: /cv/
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      font-family: 'InterLocal', system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
       font-size: 12pt;
       line-height: 1.4;
       color: #111;
@@ -175,7 +190,7 @@ permalink: /cv/
       body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-        font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif;
+        font-family: 'InterLocal', Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif;
         font-weight: 400;
         font-synthesis: none;
         font-variant-ligatures: none;

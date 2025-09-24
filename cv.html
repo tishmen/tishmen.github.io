@@ -146,6 +146,21 @@ permalink: /cv/
     .role {
       margin-top: 18px;
     }
+    .role-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .role-logo {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background: #fff;
+      padding: 1px;
+    }
     .separator {
       margin: 18px 0 0;
       border-top: 1px solid #dcdcdc;
@@ -266,8 +281,13 @@ permalink: /cv/
       <h2>Experience</h2>
 
       <article class="role">
-        <h3>Senior Odoo Developer · WeSolved</h3>
-        <div class="meta">Feb 2025 – Sep 2025 · Contract · Remote/EMEA</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/wesolved.jpg' | relative_url }}" alt="WeSolved logo">
+          <div>
+            <h3>Senior Odoo Developer · WeSolved</h3>
+            <div class="meta">Feb 2025 – Sep 2025 · Contract · Remote/EMEA</div>
+          </div>
+        </div>
         <ul>
           <li>Delivered accounting customizations for a multinational manufacturer, aligning consolidated ledgers, IFRS reporting, and multi-company development.</li>
           <li>Led the Odoo POS stream, redesigning UX and hardening beta 18.2 builds ahead of the Odoo 19 release.</li>
@@ -278,8 +298,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Odoo Developer · Upwork.com</h3>
-        <div class="meta">Sep 2022 – Sep 2024 · Freelance · Remote</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/upwork.png' | relative_url }}" alt="Upwork logo">
+          <div>
+            <h3>Odoo Developer · Upwork.com</h3>
+            <div class="meta">Sep 2022 – Sep 2024 · Freelance · Remote</div>
+          </div>
+        </div>
         <ul>
           <li>Replaced GPT integration with LangChain-powered assistants embedded in Odoo CRM to guide reps in-context.</li>
           <li>Automated customer analysis and follow-ups, cutting manual workload by ~40% through AI-driven workflows.</li>
@@ -290,8 +315,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Odoo Developer · Simplify-ERP.com</h3>
-        <div class="meta">Jan 2022 – May 2022 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/simplifyerp.jpeg' | relative_url }}" alt="Simplify‑ERP logo">
+          <div>
+            <h3>Odoo Developer · Simplify-ERP.com</h3>
+            <div class="meta">Jan 2022 – May 2022 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Migrated a book-printing business from Odoo v8 → v14, refactoring modules while preserving historical data.</li>
           <li>Extended open-source migration scripts to handle legacy models and edge cases with zero data loss.</li>
@@ -300,8 +330,13 @@ permalink: /cv/
       </article>
 
       <article class="role">
-        <h3>Founder &amp; Technical Lead · E-commerce business</h3>
-        <div class="meta">Sep 2019 – Sep 2021 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/mikosolar.png' | relative_url }}" alt="Miko Solar logo">
+          <div>
+            <h3>Founder &amp; Technical Lead · E-commerce business</h3>
+            <div class="meta">Sep 2019 – Sep 2021 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Ran multi-site WooCommerce storefronts with 99% uptime and sub-2s loads via caching and performance tuning.</li>
           <li>Owned supplier onboarding, marketing ops, and revenue optimization alongside platform engineering.</li>
@@ -311,8 +346,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Technical Lead · Serpwatch.io</h3>
-        <div class="meta">Aug 2018 – Sep 2019 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/serpwatch.png' | relative_url }}" alt="SerpWatch logo">
+          <div>
+            <h3>Technical Lead · Serpwatch.io</h3>
+            <div class="meta">Aug 2018 – Sep 2019 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Led a real-time SERP monitoring platform on GCP + Vue.js with Firestore/Cloud Functions backbone.</li>
           <li>Owned product roadmap, SRE, and scaling strategy as the company exited Firestore beta.</li>
@@ -322,8 +362,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Scrapy Developer · Upwork.com</h3>
-        <div class="meta">Dec 2017 – Aug 2018 · Freelance</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/upwork.png' | relative_url }}" alt="Upwork logo">
+          <div>
+            <h3>Scrapy Developer · Upwork.com</h3>
+            <div class="meta">Dec 2017 – Aug 2018 · Freelance</div>
+          </div>
+        </div>
         <ul>
           <li>Architected distributed crawling clusters processing hundreds of thousands of pages per day.</li>
           <li>Implemented AI form detection and resilient proxy/rate limiting pipelines for automation projects.</li>
@@ -333,8 +378,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Python Developer · Skilled.co</h3>
-        <div class="meta">Mar 2017 – Jan 2018 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/skilled.png' | relative_url }}" alt="Skilled.co logo">
+          <div>
+            <h3>Python Developer · Skilled.co</h3>
+            <div class="meta">Mar 2017 – Jan 2018 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Automated data enrichment with LinkedIn and web sources for SEO intelligence products.</li>
           <li>Delivered Alexa Top 1M crawling pipelines and REST APIs powering the public rankings site.</li>
@@ -342,8 +392,13 @@ permalink: /cv/
       </article>
 
       <article class="role">
-        <h3>Django Developer · CosmicDevelopment.com</h3>
-        <div class="meta">Sep 2016 – Feb 2017 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/cosmicdevelopment.jpeg' | relative_url }}" alt="CosmicDevelopment logo">
+          <div>
+            <h3>Django Developer · CosmicDevelopment.com</h3>
+            <div class="meta">Sep 2016 – Feb 2017 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Enhanced a large webcam streaming platform with new UX flows and real-time features.</li>
           <li>Optimized Django services and integrations for scalability and reliability.</li>
@@ -353,8 +408,13 @@ permalink: /cv/
       <div class="separator"></div>
 
       <article class="role">
-        <h3>Python Developer · PlacePixel.com</h3>
-        <div class="meta">Jun 2016 – Mar 2017 · Skopje, MK</div>
+        <div class="role-head">
+          <img class="role-logo" src="{{ '/assets/images/placepixel.jpeg' | relative_url }}" alt="PlacePixel logo">
+          <div>
+            <h3>Python Developer · PlacePixel.com</h3>
+            <div class="meta">Jun 2016 – Mar 2017 · Skopje, MK</div>
+          </div>
+        </div>
         <ul>
           <li>Built high-performance scrapers and deduplication pipelines for global event aggregation.</li>
           <li>Standardized datasets for mapping interfaces and adopted Docker for reproducible deploys.</li>

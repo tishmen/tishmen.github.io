@@ -10,6 +10,11 @@ permalink: /cv/
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milan Topuzov · CV</title>
   <style>
+    /* Print page size and margins */
+    @page {
+      size: A4;
+      margin: 10mm 8mm; /* top/bottom 10mm, left/right 8mm */
+    }
     :root {
       color-scheme: only light;
     }
@@ -172,7 +177,7 @@ permalink: /cv/
       }
       main {
         max-width: none;
-        padding: 18mm 20mm;
+        padding: 8mm 8mm; /* reduce left/right padding for PDF */
       }
       .intro {
         grid-template-columns: 120px 1fr;

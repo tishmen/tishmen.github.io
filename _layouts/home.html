@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section>
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">{{ page.title }}</h1>
+  <p class="mt-2 text-slate-300">What’s on Milan Topuzov’s mind.</p>
+  <div class="mt-6 mb-8 h-px w-full bg-white/10"></div>
+  <div class="grid gap-4 md:grid-cols-2">
+    {% for post in site.posts %}
+    <a href="{{ post.url | relative_url }}" class="block rounded-xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/[.07] focus:outline-none focus:ring-2 focus:ring-cyan-400/40">
+      <div class="flex items-baseline justify-between gap-4">
+        <h2 class="text-lg font-semibold text-slate-200">{{ post.title }}</h2>
+        <time class="shrink-0 text-sm text-slate-400">{{ post.date | date: "%Y-%m-%d" }}</time>
+      </div>
+      <p class="mt-2 text-slate-300">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>

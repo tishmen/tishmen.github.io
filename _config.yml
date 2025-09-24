@@ -1,0 +1,29 @@
+title: "Milan Topuzov"
+description: "Creative Odoo developer — modules, integrations, automation"
+url: "https://milantopuzov.dev" # production URL
+baseurl: "" # empty for root or custom domain
+
+# Site logo used by jekyll-seo-tag
+logo: /assets/images/milan-512.webp
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Ensure dot-directories like .well-known are published
+include:
+  - .well-known
+
+
+permalink: /blog/:year/:month/:day/:title/
+timezone: Etc/UTC
+
+# Exclude build artifacts
+exclude:
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - README.md

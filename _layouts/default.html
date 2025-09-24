@@ -1,0 +1,122 @@
+---
+---
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            colors: {
+              base: {
+                900: '#0b0c0f',
+                800: '#111217',
+                700: '#181A20'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Clean, symmetrical dotted background (uniform grid) */
+      body {
+        background-color: #0b0c0f;
+        color: #e5e7eb;
+      }
+      /* Keep article content from causing page-wide horizontal scroll */
+      .prose { overflow-x: hidden; }
+      .prose table { display: block; width: 100%; overflow-x: auto; }
+      .prose img, .prose video, .prose iframe { max-width: 100%; height: auto; }
+      /* Fix mobile overflow caused by long list items (ul/ol) */
+      .prose ul, .prose ol { margin-left: 1.25rem; padding-left: 1rem; list-style-position: outside; }
+      .prose li { overflow-wrap: anywhere; word-break: break-word; }
+
+      /* Hint browsers to render native controls in dark */
+      input, select, textarea, option { color-scheme: dark; }
+      /* Highlight.js canonical: overflow on highlighted element */
+      .prose pre {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: .5rem;
+      }
+      .prose pre code { display: block; white-space: pre; }
+      .hljs { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: .75rem 1rem; }
+      /* Optional wrapped variant for very long logs */
+      .prose pre.wrap code { white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        /* First layer: tiled dot grid. Second layer: subtle vertical gradient. */
+        background:
+          radial-gradient(circle, rgba(255,255,255,0.08) 1.2px, transparent 1.3px) 0 0/24px 24px,
+          linear-gradient(180deg, #0b0c0f 0%, #0e0f14 100%);
+      }
+    </style>
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        try {
+          if (window.hljs) hljs.highlightAll();
+        } catch (e) {}
+      });
+    </script>
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+    {% seo %}
+  </head>
+  <body class="min-h-screen flex flex-col antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-base-900/80 backdrop-blur supports-[backdrop-filter]:bg-base-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="{{ '/' | relative_url }}" class="flex items-center text-white" aria-label="{{ site.title }} home">
+            {% include logo.html %}
+            <span class="sr-only">{{ site.title }}</span>
+          </a>
+          <nav class="flex items-center gap-2 text-sm">
+            <a href="{{ '/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">About</a>
+            <a href="{{ '/work/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Work</a>
+            <a href="{{ '/blog/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Blog</a>
+            <a href="{{ '/contact/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      {{ content }}
+    </main>
+
+    <footer class="w-full text-sm text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex items-center justify-between">
+        <div>© {{ site.time | date: '%Y' }} {{ site.title }}</div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/tishmen" target="_blank" rel="noopener" class="hover:text-slate-200" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.424 2.865 8.176 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.866-.014-1.7-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.464-1.11-1.464-.907-.62.069-.607.069-.607 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.688-.103-.253-.447-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.026 2.748-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.565 4.943.359.31.679.922.679 1.859 0 1.34-.012 2.421-.012 2.75 0 .268.18.58.688.481A10.019 10.019 0 0 0 22 12.017C22 6.484 17.523 2 12 2Z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/milan-topuzov/" target="_blank" rel="noopener" class="hover:text-slate-200" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452H17.21V14.86c0-1.332-.027-3.045-1.857-3.045-1.86 0-2.145 1.45-2.145 2.948v5.69H9.07V9h3.112v1.561h.045c.435-.824 1.498-1.69 3.081-1.69 3.294 0 3.902 2.168 3.902 4.988v6.593zM5.337 7.433a1.806 1.806 0 1 1 0-3.612 1.806 1.806 0 0 1 0 3.612zM6.996 20.452H3.677V9h3.319v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  
+  </html>

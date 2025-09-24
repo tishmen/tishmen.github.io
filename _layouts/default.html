@@ -183,7 +183,11 @@
       .prose .highlight .gi { color: #a6e22e; }
     </style>
     
+    <!-- Favicons: SVG + ICO + PNG + Apple touch -->
     <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/favicon.png' | relative_url }}">
     {% seo %}
   </head>
   <body class="min-h-screen flex flex-col antialiased">

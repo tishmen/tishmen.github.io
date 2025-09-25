@@ -9,24 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
-            colors: {
-              base: {
-                900: '#0b0c0f',
-                800: '#111217',
-                700: '#181A20'
-              }
-            }
-          }
-        }
-      }
-    </script>
+    <link href="{{ '/assets/build/main.css' | relative_url }}" rel="stylesheet">
     <style>
       /* Clean, symmetrical dotted background (uniform grid) */
       body {
@@ -210,16 +193,16 @@
                 <a href="{{ '/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">About</a>
                 <a href="{{ '/work/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Work</a>
                 <a href="{{ '/blog/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Blog</a>
+                <a href="{{ '/assets/cv/Milan_Topuzov_CV.pdf' | relative_url }}" target="_blank" rel="noopener" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">CV</a>
                 <a href="{{ '/contact/' | relative_url }}" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">Contact</a>
-                <a href="{{ '/assets/cv/Milan_Topuzov_CV.pdf' | relative_url }}" target="_blank" rel="noopener" class="block rounded-md px-3 py-2 hover:bg-white/10 hover:text-white">CV (PDF)</a>
               </nav>
             </details>
             <nav class="hidden items-center gap-2 text-sm sm:flex">
               <a href="{{ '/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">About</a>
               <a href="{{ '/work/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Work</a>
               <a href="{{ '/blog/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Blog</a>
+              <a href="{{ '/assets/cv/Milan_Topuzov_CV.pdf' | relative_url }}" target="_blank" rel="noopener" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">CV</a>
               <a href="{{ '/contact/' | relative_url }}" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">Contact</a>
-              <a href="{{ '/assets/cv/Milan_Topuzov_CV.pdf' | relative_url }}" target="_blank" rel="noopener" class="rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-white">CV (PDF)</a>
             </nav>
           </div>
         </div>

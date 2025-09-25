@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: small base normalizations that match current style */
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+}
+
+/* You can migrate inline styles here over time if desired */

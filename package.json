@@ -1,0 +1,15 @@
+{
+  "name": "milantopuzov.dev",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i assets/css/main.css -o assets/build/main.css --minify",
+    "dev:css": "tailwindcss -c tailwind.config.js -i assets/css/main.css -o assets/build/main.css --watch",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.10"
+  }
+}

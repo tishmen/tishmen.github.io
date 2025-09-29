@@ -7,7 +7,7 @@ tags: [odoo, ubuntu, installer, docker, postgres, pgvector, open-source, communi
 
 I’ve long admired the work of Yenthe and the community around the Odoo InstallScript — it’s one of those small-but-mighty tools that saves thousands of people real time. This script was my very first contact with Odoo; I used it at the beginning to spin up my first instance. It’s a great honor to have a PR merged into such a widely used project, and an even bigger honor to know these changes will help many more smooth installs land in production.
 
-Link to the PR: https://github.com/Yenthe666/InstallScript/pull/458
+Link to the PR: [Improve Odoo 19 installer and add Docker test environment (PR #458)](https://github.com/Yenthe666/InstallScript/pull/458)
 
 What changed
 
